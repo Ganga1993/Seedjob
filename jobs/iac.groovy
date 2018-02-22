@@ -3,7 +3,10 @@ pipelineJob('test-pg-job') {
   logRotator(5,5)
   parameters {
     choiceParam('action',['Launch','Destroy'],'')
-	nonStoredPasswordParam('myParameterName', 'my description')
+	nonStoredPasswordParam('myParameterName', 'mydescription')
+  }
+  wrappers {
+    maskPasswords()
   }
   definition {
     cps {
