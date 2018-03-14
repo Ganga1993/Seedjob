@@ -5,9 +5,6 @@ pipelineJob('test-pg-job') {
     choiceParam('action',['Launch','Destroy'],'')
 	nonStoredPasswordParam('myParameterName', 'mydescription')
   }
-  wrappers {
-    maskPasswords()
-  }
   configure {
     it / 'properties' / 'hudson.model.ParametersDefinitionProperty' / 'parameterDefinitions' << 'hudson.model.PasswordParameterDefinition' {
             name('master_password')
